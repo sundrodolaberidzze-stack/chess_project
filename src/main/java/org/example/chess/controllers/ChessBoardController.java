@@ -351,7 +351,7 @@ public class ChessBoardController {
         statusLabel.setText("Stockfish calculating...");
         Thread thread = new Thread(() -> {
             try {
-                Thread.sleep(java.util.concurrent.ThreadLocalRandom.current().nextInt(300, 951));
+                Thread.sleep(java.util.concurrent.ThreadLocalRandom.current().nextInt(1, 2));
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
