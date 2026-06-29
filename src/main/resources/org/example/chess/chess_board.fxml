@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="700.0" prefHeight="820.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.chess.controllers.ChessBoardController"
+            style="-fx-background-color: #302E2B;">
+
+    <top>
+        <VBox style="-fx-background-color: #302E2B; -fx-padding: 8 12 8 12;" spacing="6">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="blackLabel" text="♟ Black (AI)" style="-fx-text-fill: #BABABA; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <Label fx:id="capturedBlackLabel" text="" style="-fx-text-fill: #BABABA; -fx-font-size: 12px;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane style="-fx-background-color: #302E2B;">
+            <GridPane fx:id="chessGrid" alignment="CENTER"
+                      style="-fx-border-color: #1E1C18; -fx-border-width: 3;"/>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <VBox style="-fx-background-color: #302E2B; -fx-padding: 8 12 8 12;" spacing="6">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="whiteLabel" text="♙ White (You)" style="-fx-text-fill: #FFFFFF; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                <Label fx:id="capturedWhiteLabel" text="" style="-fx-text-fill: #FFFFFF; -fx-font-size: 12px;"/>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="16" style="-fx-padding: 4 0 4 0;">
+                <CheckBox fx:id="toggleMovesCheckBox" text="Show Hints"
+                          selected="true" onAction="#handleToggleHints"
+                          style="-fx-text-fill: #BABABA;"/>
+                <Label fx:id="timerLabel" text="⏱ --:--"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+                <Label fx:id="statusLabel" text="Your Turn"
+                       style="-fx-font-size: 13px; -fx-text-fill: #BABABA;"/>
+                <Button text="Fullscreen" onAction="#handleToggleFullScreen"
+                        style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <ToggleButton fx:id="soundToggleButton" text="Sound: ON" onAction="#handleToggleSound"
+                        style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button text="Resign" onAction="#handleResign"
+                        style="-fx-background-color: #B33430; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button fx:id="playAgainButton" text="Play Again"
+                        visible="false" onAction="#handlePlayAgain"
+                        style="-fx-background-color: #81B64C; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                <Button fx:id="mainMenuButton" text="Main Menu"
+                        visible="false" onAction="#handleBackToMainMenu"
+                        style="-fx-background-color: #555; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>

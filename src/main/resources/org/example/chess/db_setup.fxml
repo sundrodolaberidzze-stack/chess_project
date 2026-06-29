@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="18.0" prefWidth="420.0" prefHeight="320.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.chess.controllers.DBSetupController"
+      style="-fx-background-color: #302E2B; -fx-padding: 40;">
+
+    <Label text="Database Setup"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+    <Label text="Enter your MySQL credentials"
+           style="-fx-text-fill: #BABABA; -fx-font-size: 12px;"/>
+
+    <GridPane alignment="CENTER" hgap="12" vgap="12">
+        <Label text="MySQL User:" GridPane.columnIndex="0" GridPane.rowIndex="0"
+               style="-fx-text-fill: #BABABA;"/>
+        <TextField fx:id="userField" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                   style="-fx-background-color: #3D3B38; -fx-text-fill: white; -fx-border-color: #555; -fx-border-radius: 4; -fx-background-radius: 4;"
+                   promptText="e.g. root"/>
+        <Label text="MySQL Password:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+               style="-fx-text-fill: #BABABA;"/>
+        <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                       style="-fx-background-color: #3D3B38; -fx-text-fill: white; -fx-border-color: #555; -fx-border-radius: 4; -fx-background-radius: 4;"/>
+    </GridPane>
+
+    <Button text="Save and Connect" onAction="#handleSave"
+            style="-fx-background-color: #81B64C; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 24 8 24; -fx-border-radius: 4; -fx-background-radius: 4;"/>
+    <Label fx:id="statusLabel" text="" textFill="red" style="-fx-font-size: 12px;"/>
+</VBox>

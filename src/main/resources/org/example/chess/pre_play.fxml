@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" prefWidth="520.0" prefHeight="480.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.chess.controllers.PrePlayController"
+      style="-fx-background-color: #302E2B; -fx-padding: 40;">
+
+    <Label text="♟ New Match"
+           style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+
+    <GridPane alignment="CENTER" hgap="20" vgap="16">
+        <Label text="AI Difficulty (0–20):" GridPane.columnIndex="0" GridPane.rowIndex="0"
+               style="-fx-text-fill: #BABABA; -fx-font-size: 13px;"/>
+        <Spinner fx:id="difficultySpinner" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                 editable="true" prefWidth="120"/>
+
+        <Label text="Play as:" GridPane.columnIndex="0" GridPane.rowIndex="1"
+               style="-fx-text-fill: #BABABA; -fx-font-size: 13px;"/>
+        <ComboBox fx:id="colorComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                  prefWidth="120"/>
+
+        <Label text="Time Limit (min):" GridPane.columnIndex="0" GridPane.rowIndex="2"
+               style="-fx-text-fill: #BABABA; -fx-font-size: 13px;"/>
+        <ComboBox fx:id="timeComboBox" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                  prefWidth="120"/>
+    </GridPane>
+
+    <HBox alignment="CENTER" spacing="12.0">
+        <Button text="▶  Play vs Stockfish" onAction="#handleStartMatch"
+                style="-fx-background-color: #81B64C; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 24 10 24; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+        <Button text="Play Friend / Myself" onAction="#handleStartLocalMatch"
+                style="-fx-background-color: #6B8E23; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 18 10 18; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+    </HBox>
+
+    <HBox alignment="CENTER" spacing="12.0">
+        <Button text="View History" onAction="#handleViewHistory"
+                style="-fx-background-color: #555; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+        <Button text="Settings" onAction="#handleOpenSettings"
+                style="-fx-background-color: #555; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+        <Button text="Fullscreen" onAction="#handleToggleFullScreen"
+                style="-fx-background-color: #555; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+        <ToggleButton fx:id="soundToggleButton" text="Sound: ON" onAction="#handleToggleSound"
+                style="-fx-background-color: #555; -fx-text-fill: white; -fx-padding: 10 20 10 20; -fx-border-radius: 5; -fx-background-radius: 5;"/>
+    </HBox>
+</VBox>

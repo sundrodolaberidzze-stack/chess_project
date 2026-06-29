@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="16.0" prefWidth="620.0" prefHeight="480.0"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.chess.controllers.HistoryController"
+      style="-fx-background-color: #302E2B; -fx-padding: 30;">
+
+    <Label text="Match History"
+           style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+
+    <HBox alignment="CENTER" spacing="24">
+        <Label fx:id="recordLabel" text="W/L/D: 0/0/0"
+               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+        <Label fx:id="winPercentageLabel" text="Win Percentage: 0.0%"
+               style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #81B64C;"/>
+    </HBox>
+
+    <TableView fx:id="historyTable" prefWidth="560.0" prefHeight="340.0"
+               style="-fx-background-color: #3D3B38; -fx-border-color: #555;">
+        <columns>
+            <TableColumn fx:id="gameColumn"   text="Game"        prefWidth="140.0"/>
+            <TableColumn fx:id="resultColumn" text="Result"      prefWidth="130.0"/>
+            <TableColumn fx:id="timeColumn"   text="Date &amp; Time" prefWidth="180.0"/>
+            <TableColumn fx:id="colorColumn"  text="Color"       prefWidth="100.0"/>
+        </columns>
+        <placeholder>
+            <Label text="No games played yet." style="-fx-text-fill: #888;"/>
+        </placeholder>
+    </TableView>
+
+    <Button text="← Back" onAction="#handleBack"
+            style="-fx-background-color: #555; -fx-text-fill: white; -fx-padding: 8 24 8 24; -fx-border-radius: 4; -fx-background-radius: 4;"/>
+</VBox>
