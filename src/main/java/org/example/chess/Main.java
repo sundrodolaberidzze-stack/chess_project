@@ -26,15 +26,7 @@ public class Main extends Application {
             if (closeHandler != null) closeHandler.run();
         });
 
-        Properties props = DatabaseConfig.loadConfig();
-        String user = props.getProperty("db.user", "");
-        String password = props.getProperty("db.password", "");
-
-        if (!user.isBlank() && DatabaseManager.testAndSetupConnection(user, password)) {
-            showScene("login.fxml");
-        } else {
-            showScene("db_setup.fxml");
-        }
+        showScene("login.fxml");
 
         primaryStage.show();
     }

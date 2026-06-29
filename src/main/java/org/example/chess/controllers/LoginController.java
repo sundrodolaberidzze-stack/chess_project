@@ -45,7 +45,7 @@ public class LoginController {
             }
         } catch (Exception e) {
             SoundManager.error();
-            errorLabel.setText("Database connection failed. Use test / test123 or set up MySQL.");
+            errorLabel.setText("Database connection failed. Use testsub / testsub123 or set up MySQL.");
         }
     }
 
