@@ -123,6 +123,10 @@ public class ChessBoardController {
         StackPane pane = squarePanes[x][y];
         pane.getChildren().clear();
         String baseColor = (x + y) % 2 == 0 ? SettingsState.lightSquareColor() : SettingsState.darkSquareColor();
+        int[] whiteKing = board.getKingPosition(Piece.Color.WHITE);
+        int[] blackKing = board.getKingPosition(Piece.Color.BLACK);
+        if (whiteKing != null && whiteKing[0] == x && whiteKing[1] == y && board.isInCheck(Piece.Color.WHITE)) baseColor = "#d62828";
+        if (blackKing != null && blackKing[0] == x && blackKing[1] == y && board.isInCheck(Piece.Color.BLACK)) baseColor = "#d62828";
         if (x == selectedX && y == selectedY) baseColor = "#f6f669";
         if (x == premoveSelectedX && y == premoveSelectedY) baseColor = "#ffb347";
         pane.setStyle("-fx-background-color: " + baseColor + ";");

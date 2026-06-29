@@ -10,7 +10,6 @@ import org.example.chess.database.DatabaseConfig;
 import org.example.chess.database.DatabaseManager;
 
 import java.util.Properties;
-
 public class Main extends Application {
     private static Stage primaryStage;
     private static String sessionUser;

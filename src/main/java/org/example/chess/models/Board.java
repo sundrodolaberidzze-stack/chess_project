@@ -117,7 +117,7 @@ public class Board {
             int ty = y + dir;
             if (!inside(tx, ty)) continue;
             Piece target = getPiece(tx, ty);
-            if (target != null && target.getColor() != p.getColor()) addPawnMove(moves, x, y, tx, ty, promote);
+            if (target != null && target.getColor() != p.getColor() && target.getType() != Piece.Type.KING) addPawnMove(moves, x, y, tx, ty, promote);
             if (tx == enPassantTargetX && ty == enPassantTargetY) moves.add(new Move(x, y, tx, ty));
         }
     }
@@ -147,7 +147,7 @@ public class Board {
                 if (target == null) {
                     moves.add(new Move(x, y, tx, ty));
                 } else {
-                    if (target.getColor() != p.getColor()) moves.add(new Move(x, y, tx, ty));
+                    if (target.getColor() != p.getColor() && target.getType() != Piece.Type.KING) moves.add(new Move(x, y, tx, ty));
                     break;
                 }
                 tx += d[0];
@@ -172,7 +172,7 @@ public class Board {
     private void addIfFreeOrEnemy(List<Move> moves, int fx, int fy, int tx, int ty, Piece p) {
         if (!inside(tx, ty)) return;
         Piece target = getPiece(tx, ty);
-        if (target == null || target.getColor() != p.getColor()) moves.add(new Move(fx, fy, tx, ty));
+        if (target == null || (target.getColor() != p.getColor() && target.getType() != Piece.Type.KING)) moves.add(new Move(fx, fy, tx, ty));
     }
 
     public void executeMove(Move m) {
@@ -218,6 +218,10 @@ public class Board {
     public boolean isDrawByFiftyMoveRule() { return halfMoveClock >= 100; }
 
     public boolean isKingDead(Piece.Color color) { return findKing(color) == null; }
+
+    public int[] getKingPosition(Piece.Color color) {
+        return findKing(color);
+    }
 
     private boolean isSquareAttacked(int x, int y, Piece.Color byColor) {
         int pawnDir = byColor == Piece.Color.WHITE ? -1 : 1;
